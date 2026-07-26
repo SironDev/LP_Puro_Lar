@@ -1,0 +1,1276 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puro Lar | Higienização de Estofados</title>
+  <meta name="description" content="Puro Lar - Higienização profissional de sofás, colchões, cadeiras e estofados automotivos. Solicite um orçamento pelo WhatsApp!">
+
+  <!-- ============================================================
+       GOOGLE FONTS
+       Fonte usada em todo o site. Basta trocar o link para mudar a
+       tipografia inteira do projeto.
+  ============================================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       ÍCONES (Font Awesome) - usados no WhatsApp, FAQ, cards, etc.
+  ============================================================= -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* =============================================================
+       1. VARIÁVEIS GLOBAIS (CSS Custom Properties)
+       -------------------------------------------------------------
+       Todas as cores, fontes e sombras do site ficam centralizadas
+       aqui. Para trocar a identidade visual da Puro Lar, basta mudar
+       os valores abaixo — o resto do CSS se ajusta sozinho.
+    ============================================================= */
+
+    :root {
+      --azul-principal: #0B5FFF;      /* Cor principal da marca */
+      --azul-escuro: #063D9E;         /* Usada em hovers/gradientes */
+      --verde-whatsapp: #25D366;      /* Cor oficial do WhatsApp */
+      --verde-escuro: #128C7E;
+      --cinza-texto: #4A4F58;         /* Texto padrão */
+      --cinza-claro: #F4F7FB;         /* Fundos alternados de seção */
+      --branco: #FFFFFF;
+      --preto-suave: #1B1E23;         /* Títulos */
+      --borda: #E3E8F0;
+
+      --fonte-titulo: 'Poppins', sans-serif;
+      --fonte-texto: 'Inter', sans-serif;
+
+      --sombra-suave: 0 10px 30px rgba(11, 95, 255, 0.08);
+      --sombra-card: 0 8px 24px rgba(20, 30, 60, 0.08);
+      --raio-padrao: 16px;
+
+      --largura-max: 1180px;
+      --transicao: all 0.35s ease;
+    }
+
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; } /* rolagem suave ao clicar em âncoras (menu) */
+
+    body {
+      font-family: var(--fonte-texto);
+      color: var(--cinza-texto);
+      line-height: 1.6;
+      background: var(--branco);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--fonte-titulo);
+      color: var(--preto-suave);
+      line-height: 1.25;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; color: inherit; }
+
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--largura-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Espaçamento padrão entre seções */
+    section { padding: 90px 0; position: relative; }
+    .bg-clara { background: var(--cinza-claro); }
+
+    /* Título de seção reutilizável em todo o site */
+    .titulo-secao {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px auto;
+    }
+    .titulo-secao span.tag {
+      display: inline-block;
+      background: rgba(11, 95, 255, 0.1);
+      color: var(--azul-principal);
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+    }
+    .titulo-secao h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 12px; }
+    .titulo-secao p { color: var(--cinza-texto); font-size: 1.05rem; }
+
+    /* Botões reutilizáveis */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transicao);
+    }
+    .btn-primario {
+      background: var(--azul-principal);
+      color: var(--branco);
+      box-shadow: 0 8px 20px rgba(11, 95, 255, 0.35);
+    }
+    .btn-primario:hover { background: var(--azul-escuro); transform: translateY(-3px); }
+    .btn-whatsapp {
+      background: var(--verde-whatsapp);
+      color: var(--branco);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+    }
+    .btn-whatsapp:hover { background: var(--verde-escuro); transform: translateY(-3px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--branco);
+      color: var(--branco);
+    }
+    .btn-outline:hover { background: var(--branco); color: var(--azul-principal); }
+
+    /* =============================================================
+       2. CABEÇALHO / NAVEGAÇÃO
+    ============================================================= */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--borda);
+      transition: var(--transicao);
+    }
+    .header-conteudo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--largura-max);
+      margin: 0 auto;
+    }
+
+    /* Espaço reservado para a LOGO da Puro Lar.
+       Substitua o conteúdo do <div class="logo"> pela tag <img src="sua-logo.png">
+       mantendo a classe "logo" para preservar o tamanho/alinhamento. */
+    .logo { display: flex; align-items: center; gap: 10px; font-family: var(--fonte-titulo); }
+    .logo-icone {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--branco); font-size: 1.3rem;
+    }
+    .logo-texto { font-weight: 800; font-size: 1.3rem; color: var(--preto-suave); }
+    .logo-texto span { color: var(--azul-principal); }
+
+    nav ul { display: flex; gap: 32px; }
+    nav a { font-weight: 500; color: var(--preto-suave); transition: var(--transicao); }
+    nav a:hover { color: var(--azul-principal); }
+
+    .header-cta { display: flex; align-items: center; gap: 18px; }
+    .btn-menu-mobile { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+
+    /* =============================================================
+       3. HERO / BANNER PRINCIPAL
+    ============================================================= */
+    .hero {
+      padding: 170px 0 100px 0;
+      background: linear-gradient(135deg, #EAF1FF 0%, #F7FAFF 60%, #FFFFFF 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .hero-texto span.tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--branco);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--azul-principal);
+      box-shadow: var(--sombra-suave);
+      margin-bottom: 22px;
+    }
+    .hero-texto h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 20px;
+    }
+    .hero-texto h1 em { color: var(--azul-principal); font-style: normal; }
+    .hero-texto p { font-size: 1.15rem; max-width: 520px; margin-bottom: 32px; }
+    .hero-botoes { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-selos { display: flex; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
+    .hero-selo { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--preto-suave); font-size: 0.95rem; }
+    .hero-selo i { color: var(--azul-principal); }
+
+    /* Espaço reservado para IMAGEM/FOTO do hero.
+       Troque o placeholder abaixo por: <img src="foto-hero.jpg" alt="Sofá higienizado"> */
+    .hero-imagem {
+      position: relative;
+      
+          overflow: hidden;
+          border-radius: 28px;
+      }
+
+.hero-image img {
+    width: 100%;
+    display: block;
+      }
+      
+    .hero-imagem .placeholder-img {
+      width: 100%;
+      aspect-ratio: 4/3.2;
+      border-radius: 24px;
+      background: repeating-linear-gradient(45deg, #DCE7FF, #DCE7FF 12px, #EAF1FF 12px, #EAF1FF 24px);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--azul-principal);
+      font-weight: 600;
+      box-shadow: var(--sombra-card);
+      border: 2px dashed var(--azul-principal);
+    }
+    .hero-imagem .placeholder-img i { font-size: 2.6rem; }
+    .card-flutuante {
+      position: absolute;
+      bottom: -24px; left: -24px;
+      background: var(--branco);
+      padding: 18px 22px;
+      border-radius: var(--raio-padrao);
+      box-shadow: var(--sombra-card);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .card-flutuante i { font-size: 1.6rem; color: var(--verde-whatsapp); }
+    .card-flutuante strong { display: block; font-size: 1.1rem; color: var(--preto-suave); }
+    .card-flutuante small { color: var(--cinza-texto); }
+
+    /* =============================================================
+       4. BOTÃO FLUTUANTE DO WHATSAPP
+       Fica fixo na tela inteira, em todas as seções.
+    ============================================================= */
+    .whatsapp-flutuante {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 999;
+      width: 64px; height: 64px;
+      background: var(--verde-whatsapp);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--branco);
+      font-size: 1.8rem;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+      animation: pulsar 2.4s infinite;
+    }
+    .whatsapp-flutuante:hover { transform: scale(1.08); }
+    @keyframes pulsar {
+      0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+      70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* =============================================================
+       5. ANTES E DEPOIS
+    ============================================================= */
+    .antes-depois-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .comparativo {
+      background: var(--branco);
+      border-radius: var(--raio-padrao);
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+    }
+    .comparativo-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+    /* Espaços reservados para as fotos de ANTES e DEPOIS.
+       Substitua cada .placeholder-antes-depois por <img src="antes-X.jpg"> etc. */
+    .placeholder-antes-depois {
+      aspect-ratio: 1/1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .placeholder-antes { background: #FCE9E9; color: #C0392B; }
+    .placeholder-depois { background: #E8F8EE; color: #1E8449; }
+    .comparativo-legenda { padding: 18px 20px; }
+    .comparativo-legenda h4 { font-size: 1.05rem; margin-bottom: 4px; }
+    .comparativo-legenda p { font-size: 0.9rem; }
+
+    /* =============================================================
+       6. CARDS DE SERVIÇOS
+    ============================================================= */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .servico-card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-padrao);
+      padding: 36px 28px;
+      transition: var(--transicao);
+    }
+    .servico-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-card);
+      border-color: transparent;
+    }
+    .servico-icone {
+      width: 62px; height: 62px;
+      border-radius: 14px;
+      background: rgba(11, 95, 255, 0.1);
+      color: var(--azul-principal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 22px;
+    }
+    .servico-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .servico-card p { font-size: 0.95rem; margin-bottom: 18px; }
+    .servico-card a { color: var(--azul-principal); font-weight: 600; font-size: 0.9rem; }
+    .servico-card a i { margin-left: 4px; transition: var(--transicao); }
+    .servico-card a:hover i { margin-left: 8px; }
+
+    /* =============================================================
+       7. COMO FUNCIONA
+    ============================================================= */
+    .passos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .passo { text-align: center; position: relative; }
+    .passo-numero {
+      width: 68px; height: 68px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+      color: var(--branco);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fonte-titulo);
+      font-weight: 700;
+      font-size: 1.3rem;
+      box-shadow: var(--sombra-suave);
+    }
+    .passo h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .passo p { font-size: 0.9rem; }
+
+    /* =============================================================
+       8. ESTATÍSTICAS ANIMADAS
+    ============================================================= */
+    .stats-secao {
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-escuro));
+      padding: 70px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stat-item h3 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: var(--branco);
+      font-family: var(--fonte-titulo);
+      font-weight: 800;
+    }
+    .stat-item p { color: rgba(255,255,255,0.85); font-weight: 500; margin-top: 6px; }
+
+    /* =============================================================
+       9. DEPOIMENTOS (CARROSSEL)
+    ============================================================= */
+    .carrossel-wrapper { position: relative; max-width: 760px; margin: 0 auto; }
+    .carrossel-track { overflow: hidden; }
+    .carrossel-slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .depoimento-slide { min-width: 100%; padding: 8px; }
+    .depoimento-card {
+      background: var(--branco);
+      border-radius: var(--raio-padrao);
+      box-shadow: var(--sombra-card);
+      padding: 40px;
+      text-align: center;
+    }
+    .depoimento-estrelas { color: #F5B301; margin-bottom: 18px; font-size: 1.1rem; }
+    .depoimento-texto { font-size: 1.1rem; font-style: italic; color: var(--preto-suave); margin-bottom: 24px; }
+    .depoimento-autor { display: flex; align-items: center; justify-content: center; gap: 14px; }
+    /* Espaço reservado para a FOTO do cliente */
+    .avatar-placeholder {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--cinza-claro);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--azul-principal);
+      font-weight: 700;
+      border: 2px solid var(--azul-principal);
+    }
+    .depoimento-autor strong { display: block; font-size: 0.95rem; }
+    .depoimento-autor small { color: var(--cinza-texto); }
+
+    .carrossel-controles {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .carrossel-seta {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--borda);
+      background: var(--branco);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transicao);
+    }
+    .carrossel-seta:hover { background: var(--azul-principal); color: var(--branco); border-color: var(--azul-principal); }
+    .carrossel-pontos { display: flex; gap: 8px; }
+    .ponto {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--borda);
+      cursor: pointer;
+      transition: var(--transicao);
+    }
+    .ponto.ativo { background: var(--azul-principal); width: 26px; border-radius: 6px; }
+
+    /* =============================================================
+       10. FAQ (ACORDEÃO)
+    ============================================================= */
+    .faq-lista { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .faq-pergunta {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 26px;
+      background: none; border: none;
+      text-align: left;
+      font-family: var(--fonte-titulo);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--preto-suave);
+      cursor: pointer;
+    }
+    .faq-pergunta i { transition: transform 0.3s ease; color: var(--azul-principal); }
+    .faq-item.ativo .faq-pergunta i { transform: rotate(180deg); }
+    .faq-resposta {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-resposta-conteudo { padding: 0 26px 22px 26px; font-size: 0.95rem; }
+
+    /* =============================================================
+       11. CTA FINAL
+    ============================================================= */
+    .cta-final {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-principal));
+      border-radius: 28px;
+      max-width: var(--largura-max);
+      margin: 0 auto;
+      padding: 70px 40px;
+      text-align: center;
+    }
+    .cta-final h2 { color: var(--branco); font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 14px; }
+    .cta-final p { color: rgba(255,255,255,0.85); max-width: 560px; margin: 0 auto 32px auto; font-size: 1.05rem; }
+    .cta-botoes { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* =============================================================
+       12. RODAPÉ
+    ============================================================= */
+    footer { background: #101317; color: #C7CCD6; padding: 70px 0 24px 0; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 46px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-col h4 { color: var(--branco); font-size: 1rem; margin-bottom: 20px; }
+    .footer-col ul li { margin-bottom: 12px; font-size: 0.92rem; }
+    .footer-col ul li a:hover { color: var(--branco); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-col p.descricao { font-size: 0.92rem; margin-bottom: 20px; max-width: 320px; }
+    .footer-redes { display: flex; gap: 12px; }
+    .footer-redes a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transicao);
+    }
+    .footer-redes a:hover { background: var(--azul-principal); }
+    .footer-contato li { display: flex; align-items: flex-start; gap: 10px; }
+    .footer-baixo {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      padding-top: 24px;
+      font-size: 0.85rem;
+    }
+
+    /* =============================================================
+       13. ANIMAÇÕES AO ROLAR A PÁGINA (scroll reveal)
+       A classe .oculto-scroll começa invisível/deslocada; o JavaScript
+       adiciona ".mostrar-scroll" quando o elemento entra na tela.
+    ============================================================= */
+    .oculto-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .oculto-scroll.mostrar-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =============================================================
+       14. RESPONSIVIDADE
+    ============================================================= */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-imagem { order: -1; }
+      .antes-depois-grid { grid-template-columns: repeat(2, 1fr); }
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+      .passos-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      nav, .header-cta .btn { display: none; }
+      .btn-menu-mobile { display: block; }
+      section { padding: 60px 0; }
+      .antes-depois-grid { grid-template-columns: 1fr; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .card-flutuante { left: 12px; bottom: -20px; padding: 14px 16px; }
+      .cta-final { padding: 50px 22px; border-radius: 18px; }
+      .whatsapp-flutuante { width: 56px; height: 56px; font-size: 1.5rem; bottom: 18px; right: 18px; }
+    }
+
+    @media (max-width: 560px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-baixo { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =================================================================
+       CABEÇALHO / NAVEGAÇÃO
+       Espaço reservado para a LOGO dentro de .logo
+  ================================================================== -->
+  <header>
+    <div class="header-conteudo">
+      <div class="logo">
+        <!-- Substitua o div abaixo por <img src="logo-puro-lar.png" alt="Puro Lar" style="width:44px;height:44px;"> -->
+        <img src="imagens/LOGO.PURO.LAR.png" alt="Puro Lar" style="width: 270px;height: 80px;">
+      </div>
+
+      <nav>
+        <ul>
+         
+          <li><a href="#antes-depois">Antes e Depois</a></li>
+           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="https://wa.me/5579981187745" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Orçamento
+        </a>
+        <button class="btn-menu-mobile" id="btnMenuMobile" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =================================================================
+       HERO / BANNER PRINCIPAL
+  ================================================================== -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-texto">
+        <span class="tag"><i class="fa-solid fa-star"></i> Nº1 em higienização de estofados em Sergipe</span>
+        <h1>Seu sofá <em>renovado</em> em poucos minutos</h1>
+        <p>A Puro Lar remove manchas, ácaros, odores e alérgenos de sofás, colchões, cadeiras, tapetes e bancos automotivos com produtos profissionais e seguros para crianças e pets.</p>
+        <div class="hero-botoes">
+          <a href="https://wa.me/5579981187745" target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Solicitar orçamento grátis
+          </a>
+          <a href="#servicos" class="btn" style="background:var(--branco); color:var(--azul-principal); box-shadow:var(--sombra-suave);">
+            Ver serviços
+          </a>
+        </div>
+        <div class="hero-selos">
+          <div class="hero-selo"><i class="fa-solid fa-shield-halved"></i> Produtos atóxicos</div>
+          <div class="hero-selo"><i class="fa-solid fa-clock"></i> Secagem em até 4h</div>
+          <div class="hero-selo"><i class="fa-solid fa-thumbs-up"></i> Satisfação garantida</div>
+        </div>
+      </div>
+
+      <!-- Espaço reservado para a FOTO PRINCIPAL do banner -->
+      <div class="hero-imagem">
+        <img src="imagens/CAPA_HERO.png" alt="proprietarios">
+      
+          <i class="fa-solid fa-image"></i>
+        <div class="card-flutuante">
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+          <div>
+
+            <strong>+1.000</strong>
+            <small>estofados higienizados</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       BOTÃO FLUTUANTE DO WHATSAPP (fixo em todas as páginas)
+  ================================================================== -->
+  <a href="https://wa.me/5579981187745" target="_blank" class="whatsapp-flutuante" aria-label="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- =================================================================
+       SEÇÃO ANTES E DEPOIS
+  ================================================================== -->
+  <section id="antes-depois">
+    <div class="container">
+      <div class="titulo-secao oculto-scroll">
+        <span class="tag">Resultados reais</span>
+        <h2>Antes e Depois</h2>
+        <p>Veja a transformação que só a higienização profissional da Puro Lar proporciona.</p>
+      </div>
+
+      <div class="antes-depois-grid">
+        <!-- Cada bloco .comparativo é um card de antes/depois. Duplique para adicionar mais. -->
+        <div class="comparativo oculto-scroll">
+          <div class="comparativo-imgs">
+            <!-- Troque por <img src="sofa-antes.jpg"> -->
+            <img src="imagens/sofá.dois.lugares(antes).jpeg" alt="sofa-antes">
+            <img src="imagens/sofá.dois.lugares(depois).jpeg" alt="sofa-depois">
+          </div>
+          <div class="comparativo-legenda">
+            <h4>Sofá de 2 lugares</h4>
+            <p>Sensação de sofá novo que só a Puro Lar realiza.</p>
+          </div>
+        </div>
+
+        <div class="comparativo oculto-scroll">
+          <div class="comparativo-imgs">
+            <img src="imagens/tapete.antes(01).jpeg" alt="tapete-antes">
+            <img src="imagens/tapete.depois(01).jpeg" alt="tapete-depois">
+          </div>
+          <div class="comparativo-legenda">
+            <h4>Tapete</h4>
+            <p>Eliminação de ácaros e manchas.</p>
+          </div>
+        </div>
+
+        <div class="comparativo oculto-scroll">
+          <div class="comparativo-imgs">
+           <img src="imagens/sofa_4lugares_antes.jpeg" alt="sofa_4lugares_antes">
+           <img src="imagens/sofa_4lugares_depois.jpeg" alt="sofa_4lugares_depois">
+          </div>
+          <div class="comparativo-legenda">
+            <h4>Sofá de 4 lugares</h4>
+            <p>Remoção completa de manchas de gordura e odor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       CARDS DE SERVIÇOS
+  ================================================================== -->
+  <section id="servicos" class="bg-clara">
+    <div class="container">
+      <div class="titulo-secao oculto-scroll">
+        <span class="tag">Nossos serviços</span>
+        <h2>A Pureza que Transforma sua Vida</h2>
+        <p>Higienização especializada para cada tipo de estofado, com técnicas e produtos específicos.</p>
+      </div>
+
+      <div class="servicos-grid">
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-couch"></i></div>
+          <h3>Sofás</h3>
+          <p>Limpeza profunda em tecido, suede e couro, removendo manchas e odores.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-bed"></i></div>
+          <h3>Colchões</h3>
+          <p>Eliminação de ácaros, fungos e manchas para um sono mais saudável.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-chair"></i></div>
+          <h3>Cadeiras e Poltronas</h3>
+          <p>Higienização de estofados de escritório, jantar e área de descanso.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-car"></i></div>
+          <h3>Estofados Automotivos</h3>
+          <p>Bancos, teto e carpete do carro com aspecto e cheiro de novo.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-rug"></i></div>
+          <h3>Tapetes e Carpetes</h3>
+          <p>Limpeza que remove sujeira profunda sem danificar as fibras.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="servico-card oculto-scroll">
+          <div class="servico-icone"><i class="fa-solid fa-wind"></i></div>
+          <h3>Cortinas</h3>
+          <p>Higienização a seco, sem retirar a cortina do local de instalação.</p>
+          <a href="https://wa.me/5579981187745" target="_blank">Solicitar orçamento <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       COMO FUNCIONA
+  ================================================================== -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="titulo-secao oculto-scroll">
+        <span class="tag">Processo simples</span>
+        <h2>Como funciona</h2>
+        <p>Do orçamento à entrega, tudo pensado para ser rápido e sem complicação.</p>
+      </div>
+
+      <div class="passos-grid">
+        <div class="passo oculto-scroll">
+          <div class="passo-numero">1</div>
+          <h3>Contato via WhatsApp</h3>
+          <p>Você envia fotos do estofado e recebe um orçamento rápido.</p>
+        </div>
+        <div class="passo oculto-scroll">
+          <div class="passo-numero">2</div>
+          <h3>Agendamento</h3>
+          <p>Escolhemos juntos o melhor dia e horário para o atendimento.</p>
+        </div>
+        <div class="passo oculto-scroll">
+          <div class="passo-numero">3</div>
+          <h3>Higienização no local</h3>
+          <p>Nossa equipe realiza a limpeza profunda direto na sua casa.</p>
+        </div>
+        <div class="passo oculto-scroll">
+          <div class="passo-numero">4</div>
+          <h3>Estofado renovado</h3>
+          <p>Em poucas horas seu estofado está limpo, seco e perfumado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       ESTATÍSTICAS ANIMADAS
+       Os números finais ficam no atributo data-alvo. O JavaScript conta
+       de 0 até esse valor quando a seção entra na tela.
+  ================================================================== -->
+  <section class="stats-secao">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <h3><span class="numero-contador" data-alvo="1000">0</span>+</h3>
+        <p>Estofados higienizados</p>
+      </div>
+      <div class="stat-item">
+        <h3><span class="numero-contador" data-alvo="2">0</span></h3>
+        <p>Anos de experiência</p>
+      </div>
+      <div class="stat-item">
+        <h3><span class="numero-contador" data-alvo="98">0</span>%</h3>
+        <p>Clientes satisfeitos</p>
+      </div>
+      <div class="stat-item">
+        <h3><span class="numero-contador" data-alvo="24">0</span>h</h3>
+        <p>Atendimento e retorno</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       DEPOIMENTOS (CARROSSEL)
+  ================================================================== -->
+  <section id="depoimentos" class="bg-clara">
+    <div class="container">
+      <div class="titulo-secao oculto-scroll">
+        <span class="tag">Depoimentos</span>
+        <h2>Quem usou, recomenda</h2>
+        <p>A satisfação dos nossos clientes é o nosso maior orgulho.</p>
+      </div>
+
+      <div class="carrossel-wrapper oculto-scroll">
+        <div class="carrossel-track">
+          <div class="carrossel-slides" id="carrosselSlides">
+            <div class="depoimento-slide">
+              <div class="depoimento-card">
+                <div class="depoimento-estrelas">★★★★★</div>
+                <p class="depoimento-texto">"Meu sofá estava com manchas antigas de café e a Puro Lar deixou parecendo novo. Atendimento pontual e muito profissional."</p>
+                <div class="depoimento-autor">
+                  <!-- Substitua por <img src="foto-cliente.jpg"> dentro de .avatar-placeholder -->
+                  <div class="avatar-placeholder">DM</div>
+                  <div>
+                    <strong>Deysiane Macedo</strong>
+                    <small>São Cristovão, SE</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="depoimento-slide">
+              <div class="depoimento-card">
+                <div class="depoimento-estrelas">★★★★★</div>
+                <p class="depoimento-texto">"Solicitei o serviço com a finalidade de vender o sofá, mas quando eu vi o resultado final desisti da ideia de vender. Ficou pricamente novo!"</p>
+                <div class="depoimento-autor">
+                  <div class="avatar-placeholder">KS</div>
+                  <div>
+                    <strong>Karoline Soares</strong>
+                    <small>São Cristovão, SE</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="depoimento-slide">
+              <div class="depoimento-card">
+                <div class="depoimento-estrelas">★★★★★</div>
+                <p class="depoimento-texto">"tenho dois netos e um cachorro que gostam de brincar no tapete, e com isso estava cheio de sujeira, manchas de suco e até um odor cômodo. E os rapazes da Puro Lar conseguiram resolver esse problema, fazendo um excelente trabalho"</p>
+                <div class="depoimento-autor">
+                  <div class="avatar-placeholder">MA</div>
+                  <div>
+                    <strong>Marta Azevedo</strong>
+                    <small>Aracaju, SE</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carrossel-controles">
+          <button class="carrossel-seta" id="setaAnterior" aria-label="Depoimento anterior"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="carrossel-pontos" id="carrosselPontos"></div>
+          <button class="carrossel-seta" id="setaProxima" aria-label="Próximo depoimento"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       FAQ (ACORDEÃO)
+  ================================================================== -->
+  <section id="faq">
+    <div class="container">
+      <div class="titulo-secao oculto-scroll">
+        <span class="tag">Dúvidas frequentes</span>
+        <h2>Perguntas e respostas</h2>
+        <p>Reunimos as dúvidas mais comuns dos nossos clientes.</p>
+      </div>
+
+      <div class="faq-lista oculto-scroll">
+        <!-- Cada .faq-item é uma pergunta. Duplique o bloco inteiro para adicionar mais. -->
+        <div class="faq-item">
+          <button class="faq-pergunta">
+            Quanto tempo leva para o estofado secar?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-resposta">
+            <div class="faq-resposta-conteudo">
+              O tempo médio de secagem é de 2 a 4 horas, dependendo do tipo de tecido e das condições climáticas do dia.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">
+            Os produtos utilizados são seguros para crianças e pets?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-resposta">
+            <div class="faq-resposta-conteudo">
+              Sim! Utilizamos produtos atóxicos, biodegradáveis e livres de odores fortes, seguros para toda a família.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">
+            Preciso retirar o estofado de casa?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-resposta">
+            <div class="faq-resposta-conteudo">
+              Não. Todo o serviço é realizado no local, sem necessidade de transporte ou retirada do móvel.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">
+            Como faço para agendar um horário?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-resposta">
+            <div class="faq-resposta-conteudo">
+              É simples: clique no botão do WhatsApp, envie fotos do estofado e nossa equipe retorna com o orçamento e as datas disponíveis.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pergunta">
+            Qual a forma de pagamento?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-resposta">
+            <div class="faq-resposta-conteudo">
+              Aceitamos Pix, cartão de crédito/débito e dinheiro. O pagamento é feito após a conclusão do serviço.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       CTA FINAL
+  ================================================================== -->
+  <section>
+    <div class="container">
+      <div class="cta-final oculto-scroll">
+        <h2>Pronto para renovar seus estofados?</h2>
+        <p>Fale agora mesmo com a nossa equipe e receba um orçamento gratuito em minutos, sem compromisso.</p>
+        <div class="cta-botoes">
+          <a href="https://wa.me/5579981187745" target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp
+          </a>
+          <a href="tel:+5579981187745" class="btn btn-outline">
+            <i class="fa-solid fa-phone"></i> Ligar agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================
+       RODAPÉ
+  ================================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+           <img src="imagens/LOGO.BR.png" alt="Puro Lar" style="width: 200px;height: 100px;">
+          </div>
+          <p class="descricao">Higienização profissional de estofados com produtos seguros, equipe treinada e resultados que você vê e sente.</p>
+          <div class="footer-redes">
+            <a href="https://www.instagram.com/purolar__/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61589668778732" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://wa.me/5579981187745" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Sofás</a></li>
+            <li><a href="#servicos">Colchões</a></li>
+            <li><a href="#servicos">Cadeiras</a></li>
+            <li><a href="#servicos">Estofados automotivos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#antes-depois">Antes e Depois</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">Perguntas frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul class="footer-contato">
+            <li><i class="fa-solid fa-location-dot"></i> Aracaju - SE</li>
+            <li><i class="fa-solid fa-phone"></i> (79) 98118-7745</li>
+            <li><i class="fa-solid fa-envelope"></i> purolarsuporte@gmail.com</li>
+            <li><i class="fa-solid fa-clock"></i> Seg a Sáb, 8h às 18h</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-baixo">
+        <span>&copy; <span id="anoAtual"></span> Puro Lar. Todos os direitos reservados.</span>
+        <span>Higienização de estofados com carinho e profissionalismo.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===================================================================
+       ARQUIVO: script principal da landing page Puro Lar
+       Organizado em blocos independentes, cada um comentado, para
+       facilitar o estudo e a manutenção do código.
+    =================================================================== */
+
+    /* -------------------------------------------------------------
+       1. ANO ATUAL NO RODAPÉ
+       Preenche automaticamente o ano no texto de copyright, assim
+       você nunca precisa atualizar isso manualmente.
+    ------------------------------------------------------------- */
+    document.getElementById('anoAtual').textContent = new Date().getFullYear();
+
+    /* -------------------------------------------------------------
+       2. MENU MOBILE (abre/fecha a navegação em telas pequenas)
+       Aqui criamos um menu simples: ao clicar no botão de hambúrguer,
+       alternamos a exibição do <nav> (que fica oculto por padrão
+       no CSS para telas menores que 768px).
+    ------------------------------------------------------------- */
+    const btnMenuMobile = document.getElementById('btnMenuMobile');
+    const nav = document.querySelector('nav');
+
+    btnMenuMobile.addEventListener('click', () => {
+      // Alterna a visibilidade do menu a cada clique
+      const aberto = nav.style.display === 'block';
+      nav.style.display = aberto ? 'none' : 'block';
+
+      // Quando aberto em mobile, aplicamos estilos para o menu
+      // aparecer como uma lista vertical abaixo do cabeçalho.
+      if (!aberto) {
+        nav.style.position = 'absolute';
+        nav.style.top = '68px';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = '#fff';
+        nav.style.padding = '20px 24px';
+        nav.style.boxShadow = '0 12px 20px rgba(0,0,0,0.08)';
+        nav.querySelector('ul').style.flexDirection = 'column';
+        nav.querySelector('ul').style.gap = '18px';
+      }
+    });
+
+    // Fecha o menu mobile automaticamente ao clicar em um link
+    document.querySelectorAll('nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) nav.style.display = 'none';
+      });
+    });
+
+    /* -------------------------------------------------------------
+       3. ANIMAÇÕES AO ROLAR A PÁGINA (Intersection Observer)
+       Todo elemento com a classe ".oculto-scroll" começa invisível
+       (definido no CSS). Quando o elemento entra na área visível da
+       tela, adicionamos a classe ".mostrar-scroll", que o CSS anima
+       com fade-in + deslocamento suave.
+    ------------------------------------------------------------- */
+    const elementosAnimados = document.querySelectorAll('.oculto-scroll');
+
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('mostrar-scroll');
+          // Após animar uma vez, paramos de observar o elemento
+          // (evita reprocessar o mesmo elemento repetidamente).
+          observador.unobserve(entrada.target);
+        }
+      });
+    }, {
+      threshold: 0.15 // dispara quando 15% do elemento estiver visível
+    });
+
+    elementosAnimados.forEach((el) => observador.observe(el));
+
+    /* -------------------------------------------------------------
+       4. ESTATÍSTICAS ANIMADAS (contador de números)
+       Cada <span class="numero-contador"> possui um atributo
+       data-alvo com o valor final. A função animarContador() conta
+       de 0 até esse valor, criando o efeito de "números subindo".
+       Usamos outro Intersection Observer para iniciar a contagem
+       apenas quando a seção de estatísticas aparece na tela.
+    ------------------------------------------------------------- */
+    function animarContador(elemento) {
+      const alvo = parseInt(elemento.getAttribute('data-alvo'), 10);
+      const duracao = 1800; // duração total da animação, em milissegundos
+      const inicio = performance.now();
+
+      function passo(tempoAtual) {
+        const progresso = Math.min((tempoAtual - inicio) / duracao, 1);
+        const valorAtual = Math.floor(progresso * alvo);
+        elemento.textContent = valorAtual;
+
+        if (progresso < 1) {
+          requestAnimationFrame(passo);
+        } else {
+          elemento.textContent = alvo; // garante o valor exato no final
+        }
+      }
+
+      requestAnimationFrame(passo);
+    }
+
+    const secaoStats = document.querySelector('.stats-secao');
+    const numerosContador = document.querySelectorAll('.numero-contador');
+    let statsJaAnimadas = false;
+
+    const observadorStats = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting && !statsJaAnimadas) {
+          numerosContador.forEach((numero) => animarContador(numero));
+          statsJaAnimadas = true; // garante que a animação rode uma única vez
+          observadorStats.unobserve(secaoStats);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    if (secaoStats) observadorStats.observe(secaoStats);
+
+    /* -------------------------------------------------------------
+       5. CARROSSEL DE DEPOIMENTOS
+       Estrutura: um container ".carrossel-slides" com vários
+       ".depoimento-slide" lado a lado. Para navegar, deslocamos o
+       container inteiro usando "transform: translateX()".
+    ------------------------------------------------------------- */
+    const trilhaSlides = document.getElementById('carrosselSlides');
+    const slides = document.querySelectorAll('.depoimento-slide');
+    const containerPontos = document.getElementById('carrosselPontos');
+    const setaAnterior = document.getElementById('setaAnterior');
+    const setaProxima = document.getElementById('setaProxima');
+
+    let indiceAtual = 0;
+
+    // Cria dinamicamente um "ponto" de navegação para cada depoimento
+    slides.forEach((_, indice) => {
+      const ponto = document.createElement('div');
+      ponto.classList.add('ponto');
+      if (indice === 0) ponto.classList.add('ativo');
+      ponto.addEventListener('click', () => irParaSlide(indice));
+      containerPontos.appendChild(ponto);
+    });
+
+    const pontos = document.querySelectorAll('.ponto');
+
+    function irParaSlide(indice) {
+      indiceAtual = indice;
+
+      // Move a trilha de slides horizontalmente:
+      // cada slide ocupa 100% da largura, então movemos "indice * 100%"
+      trilhaSlides.style.transform = `translateX(-${indice * 100}%)`;
+
+      // Atualiza qual "ponto" aparece destacado
+      pontos.forEach((ponto, i) => {
+        ponto.classList.toggle('ativo', i === indice);
+      });
+    }
+
+    setaProxima.addEventListener('click', () => {
+      const proximo = (indiceAtual + 1) % slides.length; // volta ao início ao chegar no fim
+      irParaSlide(proximo);
+    });
+
+    setaAnterior.addEventListener('click', () => {
+      const anterior = (indiceAtual - 1 + slides.length) % slides.length; // vai para o último ao voltar do início
+      irParaSlide(anterior);
+    });
+
+    // Rotação automática do carrossel a cada 6 segundos
+    setInterval(() => {
+      const proximo = (indiceAtual + 1) % slides.length;
+      irParaSlide(proximo);
+    }, 6000);
+
+    /* -------------------------------------------------------------
+       6. FAQ (ACORDEÃO)
+       Cada ".faq-item" tem um botão (.faq-pergunta) e uma resposta
+       (.faq-resposta) com altura 0 por padrão. Ao clicar, alternamos
+       a classe "ativo" e ajustamos "max-height" dinamicamente para
+       criar a animação de abrir/fechar.
+    ------------------------------------------------------------- */
+    const itensFaq = document.querySelectorAll('.faq-item');
+
+    itensFaq.forEach((item) => {
+      const botao = item.querySelector('.faq-pergunta');
+      const resposta = item.querySelector('.faq-resposta');
+
+      botao.addEventListener('click', () => {
+        const estaAtivo = item.classList.contains('ativo');
+
+        // Fecha todos os outros itens abertos (comportamento de acordeão)
+        itensFaq.forEach((outroItem) => {
+          outroItem.classList.remove('ativo');
+          outroItem.querySelector('.faq-resposta').style.maxHeight = null;
+        });
+
+        // Se o item clicado já estava aberto, apenas o fechamos.
+        // Se estava fechado, abrimos e ajustamos a altura ao conteúdo real.
+        if (!estaAtivo) {
+          item.classList.add('ativo');
+          resposta.style.maxHeight = resposta.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* -------------------------------------------------------------
+       7. CABEÇALHO COM SOMBRA AO ROLAR A PÁGINA
+       Pequeno efeito visual: adiciona uma sombra mais forte no
+       cabeçalho quando o usuário rola a página para baixo.
+    ------------------------------------------------------------- */
+    const cabecalho = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 12) {
+        cabecalho.style.boxShadow = '0 8px 24px rgba(20,30,60,0.08)';
+      } else {
+        cabecalho.style.boxShadow = 'none';
+      }
+    });
+
+  </script>
+</body>
+</html>
