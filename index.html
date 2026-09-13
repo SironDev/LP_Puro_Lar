@@ -229,7 +229,7 @@
           border-radius: 28px;
       }
 
-.hero-image img {
+.hero-imagem img {
     width: 100%;
     display: block;
       }
@@ -654,7 +654,18 @@
       section { padding: 60px 0; }
       .antes-depois-grid { grid-template-columns: 1fr; }
       .servicos-grid { grid-template-columns: 1fr; }
-      .card-flutuante { left: 12px; bottom: -20px; padding: 14px 16px; }
+      .card-flutuante {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+
+    bottom: 20px;
+
+    width: calc(100% - 32px);
+    max-width: 520px;
+
+    padding: 14px 16px;
+}
       .cta-final { padding: 50px 22px; border-radius: 18px; }
       .whatsapp-flutuante { width: 56px; height: 56px; font-size: 1.5rem; bottom: 18px; right: 18px; }
     }
@@ -744,8 +755,6 @@
     <div class="contador-info">
       <strong>Estofados higienizados</strong>
       <small>Experiência que transforma ambientes</small>
-    </div>
-
   </div>
 
 </div>
@@ -1413,7 +1422,10 @@ numerosContador.forEach((numero) => {
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagens[servico])}`;
 
     window.open(url, "_blank");
+
+  
 }
+
 
   </script>
 </body>
