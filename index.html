@@ -649,26 +649,86 @@
     }
 
     @media (max-width: 768px) {
-      nav, .header-cta .btn { display: none; }
-      .btn-menu-mobile { display: block; }
-      section { padding: 60px 0; }
-      .antes-depois-grid { grid-template-columns: 1fr; }
-      .servicos-grid { grid-template-columns: 1fr; }
-      .card-flutuante {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
 
-    bottom: 20px;
-
-    width: calc(100% - 32px);
-    max-width: 520px;
-
-    padding: 14px 16px;
-}
-      .cta-final { padding: 50px 22px; border-radius: 18px; }
-      .whatsapp-flutuante { width: 56px; height: 56px; font-size: 1.5rem; bottom: 18px; right: 18px; }
+    nav, .header-cta .btn {
+        display: none;
     }
+
+    .btn-menu-mobile {
+        display: block;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .antes-depois-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ===== CARD 200+ NO CELULAR ===== */
+
+    .card-flutuante {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 18px;
+
+        width: 82%;
+        max-width: 340px;
+
+        padding: 12px 14px;
+        gap: 10px;
+
+        border-radius: 18px;
+    }
+
+    .contador-icone {
+        width: 44px;
+        height: 44px;
+    }
+
+    .contador-icone i {
+        font-size: 20px;
+    }
+
+    .contador-valor {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+    }
+
+    .contador-info {
+        padding-left: 10px;
+        min-width: 0;
+    }
+
+    .contador-info strong {
+        font-size: 0.72rem;
+    }
+
+    .contador-info small {
+        font-size: 0.60rem;
+    }
+
+
+    .cta-final {
+        padding: 50px 22px;
+        border-radius: 18px;
+    }
+
+    .whatsapp-flutuante {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+        bottom: 18px;
+        right: 18px;
+    }
+  }
 
     @media (max-width: 560px) {
       .footer-grid { grid-template-columns: 1fr; }
