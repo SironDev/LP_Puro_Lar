@@ -7,8 +7,14 @@
   <title>Puro Lar | Higienização de Estofados</title>
   <meta name="description" content="Puro Lar - Higienização profissional de sofás, colchões, cadeiras e estofados automotivos. Solicite um orçamento pelo WhatsApp!">
 
+<meta property="og:title" content="Puro Lar | Higienização de Estofados">
+<meta property="og:description" content="Higienização profissional de estofados em Aracaju e região. Peça seu orçamento!">
+<meta property="og:image" content="https://purolarhigienizacao.com.br/images/logo-puro-lar.png">
+<meta property="og:url" content="https://purolarhigienizacao.com.br/">
+<meta property="og:type" content="website">
+
   <!--ÍCONE QUE APARECE NA ABA DO NAVEDOR-->
-  <link rel="icon" type="image/png" href="imagens/VETOR LOGO TIPO.pdf.png">
+  <link rel="icon" type="image/png" href="imagens/favicon.png">
 
   <!-- ============================================================
        GOOGLE FONTS
@@ -463,6 +469,34 @@
     }
     .passo h3 { font-size: 1.05rem; margin-bottom: 8px; }
     .passo p { font-size: 0.9rem; }
+
+    
+/* Ajustes das etapas para celulares */
+@media (max-width: 600px) {
+  .passos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 32px;
+    align-items: stretch;
+  }
+
+  .passo {
+    min-width: 0;
+    text-align: center;
+  }
+
+  .passo h3 {
+    min-height: 2.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .passo p {
+    margin-top: 0;
+  }
+}
+
 
     /* =============================================================
        8. ESTATÍSTICAS ANIMADAS
@@ -1004,11 +1038,11 @@
         <p>Estofados higienizados</p>
       </div>
       <div class="stat-item">
-        <h3><span class="numero-contador" data-alvo="1">0</span></h3>
+        <h3><span class="numero-contador" data-alvo="1">0</span>+</h3>
         <p>Anos de experiência</p>
       </div>
       <div class="stat-item">
-        <h3><span class="numero-contador" data-alvo="98">0</span>%</h3>
+        <h3><span class="numero-contador" data-alvo="99">0</span>%</h3>
         <p>Clientes satisfeitos</p>
       </div>
       <div class="stat-item">
