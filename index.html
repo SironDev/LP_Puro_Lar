@@ -339,36 +339,6 @@
   margin-left: 2px;
 }
 
-
-/* Texto */
-
-.contador-info {
-  display: flex;
-  flex-direction: column;
-
-  border-left: 1px solid var(--borda);
-  padding-left: 16px;
-}
-
-.contador-info strong {
-  font-family: var(--fonte-titulo);
-  font-size: 0.95rem;
-
-  color: var(--preto-suave);
-
-  line-height: 1.2;
-}
-
-.contador-info small {
-  margin-top: 4px;
-
-  font-size: 0.72rem;
-
-  color: var(--cinza-texto);
-
-  line-height: 1.3;
-}
-
     /* =============================================================
        4. BOTÃO FLUTUANTE DO WHATSAPP
        Fica fixo na tela inteira, em todas as seções.
@@ -393,36 +363,176 @@
       70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
+      
+/* 5. COMPARADOR INTERATIVO ANTES E DEPOIS */
 
-    /* =============================================================
-       5. ANTES E DEPOIS
-    ============================================================= */
-    .antes-depois-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .comparativo {
-      background: var(--branco);
-      border-radius: var(--raio-padrao);
-      overflow: hidden;
-      box-shadow: var(--sombra-card);
-    }
-    .comparativo-imgs { display: grid; grid-template-columns: 1fr 1fr; }
-    /* Espaços reservados para as fotos de ANTES e DEPOIS.
-       Substitua cada .placeholder-antes-depois por <img src="antes-X.jpg"> etc. */
-    .placeholder-antes-depois {
-      aspect-ratio: 1/1;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-    .placeholder-antes { background: #FCE9E9; color: #C0392B; }
-    .placeholder-depois { background: #E8F8EE; color: #1E8449; }
-    .comparativo-legenda { padding: 18px 20px; }
-    .comparativo-legenda h4 { font-size: 1.05rem; margin-bottom: 4px; }
-    .comparativo-legenda p { font-size: 0.9rem; }
+#antes-depois {
+  background: #ffffff;
+  color: #ac3017;
+}
+
+#antes-depois .titulo-secao {
+  max-width: 100%;
+  text-align: left;
+  margin: 0 0 28px;
+}
+
+#antes-depois .titulo-secao h2 {
+  color: #90ff42;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  letter-spacing: -1px;
+}
+
+#antes-depois .titulo-secao p {
+  color: #000000;
+}
+
+.comparador-abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.aba-comparador {
+  padding: 12px 24px;
+  border: 1px solid #2745cd;
+  border-radius: 999px;
+  background: #2745cd;
+  color: #f3f2f1;
+  font: inherit;
+  cursor: pointer;
+}
+
+.aba-comparador.ativa {
+  background: #90ff42;
+  border-color: #06742f;
+  color: #2745cd;
+}
+
+.comparador {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 52vw, 650px);
+  overflow: hidden;
+  border-radius: 17px;
+  background: #f6f6f6;
+  isolation: isolate;
+}
+
+.comparador-imagem {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.comparador-revelacao {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  clip-path: inset(0 0 0 50%);
+}
+
+.comparador-etiqueta {
+  position: absolute;
+  top: 18px;
+  z-index: 3;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: #2745cd;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.etiqueta-antes { left: 17px; }
+.etiqueta-depois { right: 17px; }
+
+.comparador-divisoria {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 4;
+  width: 2px;
+  background: rgb(239, 235, 235);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.comparador-controle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  color: #2745cd;
+  font-size: 22px;
+  transform: translate(-50%, -50%);
+  cursor: ew-resize;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.comparador-faixa {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+.comparador-instrucao {
+  margin-top: 16px;
+  color: #2745cd;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #antes-depois {
+    padding: 48px 0;
+  }
+
+  #antes-depois .container {
+    padding: 0 16px;
+  }
+
+  .comparador {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 13px;
+  }
+
+  .aba-comparador {
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .comparador-etiqueta {
+    top: 12px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .comparador-controle {
+    width: 43px;
+    height: 43px;
+  }
+}
 
     /* =============================================================
        6. CARDS DE SERVIÇOS
@@ -510,7 +620,6 @@
     margin-top: 0;
   }
 }
-
 
     /* =============================================================
        8. ESTATÍSTICAS ANIMADAS
@@ -822,6 +931,48 @@
     </div>
   </header>
 
+  
+<!-- BANNER DE CONSENTIMENTO DE COOKIES -->
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-label="Preferências de cookies"
+  aria-describedby="cookie-description"
+  hidden
+>
+  <p id="cookie-description" class="cookie-banner__text">
+    Utilizamos cookies necessários e, com sua autorização,
+    cookies de análise e publicidade para melhorar sua
+    experiência. <a href="politica-de-cookies.html">Saiba mais...</a>
+  </p>
+
+  <div class="cookie-banner__actions">
+    <button
+      type="button"
+      id="cookie-reject"
+      class="cookie-banner__button"
+    >
+      Rejeito
+    </button>
+
+    <button
+      type="button"
+      id="cookie-accept"
+      class="cookie-banner__button"
+    >
+      Aceito
+    </button>
+  </div>
+</div>
+
+<!-- ESTILOS E LÓGICA DO CONSENTIMENTO -->
+<link rel="stylesheet" href="css/cookies.css">
+<script src="js/cookies.js" defer></script>
+</body>
+</html>
+
+
   <!-- =================================================================
        HERO / BANNER PRINCIPAL
   ================================================================== -->
@@ -884,52 +1035,71 @@
   <!-- =================================================================
        SEÇÃO ANTES E DEPOIS
   ================================================================== -->
-  <section id="antes-depois">
-    <div class="container">
-      <div class="titulo-secao oculto-scroll">
-        <span class="tag">Resultados reais</span>
-        <h2>Antes e Depois</h2>
-        <p>Veja a transformação que só a higienização profissional da Puro Lar proporciona.</p>
-      </div>
 
-      <div class="antes-depois-grid">
-        <!-- Cada bloco .comparativo é um card de antes/depois. Duplique para adicionar mais. -->
-        <div class="comparativo oculto-scroll">
-          <div class="comparativo-imgs">
-            <!-- Troque por <img src="sofa-antes.jpg"> -->
-            <img src="imagens/sofá.dois.lugares(antes).jpeg" alt="sofa-antes">
-            <img src="imagens/sofá.dois.lugares(depois).jpeg" alt="sofa-depois">
-          </div>
-          <div class="comparativo-legenda">
-            <h4>Sofá de 2 lugares</h4>
-            <p>Sensação de sofá novo que só a Puro Lar realiza.</p>
-          </div>
-        </div>
-
-        <div class="comparativo oculto-scroll">
-          <div class="comparativo-imgs">
-            <img src="imagens/tapete.antes(01).jpeg" alt="tapete-antes">
-            <img src="imagens/tapete.depois(01).jpeg" alt="tapete-depois">
-          </div>
-          <div class="comparativo-legenda">
-            <h4>Tapete</h4>
-            <p>Eliminação de ácaros e manchas.</p>
-          </div>
-        </div>
-
-        <div class="comparativo oculto-scroll">
-          <div class="comparativo-imgs">
-           <img src="imagens/banco_carro_antes.png" alt="sofa_4lugares_antes">
-           <img src="imagens/banco_carro_depois.png" alt="sofa_4lugares_depois">
-          </div>
-          <div class="comparativo-legenda">
-            <h4>Interna de carro</h4>
-            <p>Remoção completa de manchas e revitalização de plástico, carro novo novamente.</p>
-          </div>
-        </div>
-      </div>
+<section id="antes-depois">
+  <div class="container">
+    <div class="titulo-secao oculto-scroll">
+      <span class="tag">Resultados reais</span>
+      <h2>Arraste e veja a diferença</h2>
+      <p>Veja a transformação que a higienização profissional da Puro Lar proporciona.</p>
     </div>
-  </section>
+
+    <div class="comparador-abas" role="group" aria-label="Tipo de estofado">
+      <button type="button" class="aba-comparador ativa" data-tipo="sofa" aria-pressed="true">Sofá</button>
+      <button type="button" class="aba-comparador" data-tipo="tapete" aria-pressed="false">Tapete</button>
+      <button type="button" class="aba-comparador" data-tipo="carro" aria-pressed="false">Carro</button>
+    </div>
+
+    <div class="comparador" id="comparador">
+      <img
+        class="comparador-imagem"
+        id="imagem-antes"
+        src="imagens/sofá.dois.lugares(antes).jpeg"
+        alt="Sofá antes da higienização"
+        draggable="false"
+      >
+
+      <div class="comparador-revelacao" id="revelacao">
+        <img
+          class="comparador-imagem"
+          id="imagem-depois"
+          src="imagens/sofá.dois.lugares(depois).jpeg"
+          alt="Sofá depois da higienização"
+          draggable="false"
+        >
+      </div>
+
+      <span class="comparador-etiqueta etiqueta-antes">ANTES</span>
+      <span class="comparador-etiqueta etiqueta-depois">DEPOIS</span>
+
+      <div class="comparador-divisoria" id="divisoria">
+        <button
+          type="button"
+          class="comparador-controle"
+          id="controle-comparador"
+          role="slider"
+          aria-label="Mover divisória da comparação"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="50"
+          tabindex="0"
+        >↔</button>
+      </div>
+
+      <input
+        type="range"
+        id="controle-faixa"
+        class="comparador-faixa"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Comparar antes e depois"
+      >
+    </div>
+
+    <p class="comparador-instrucao">↔ Arraste a divisória para comparar o resultado</p>
+  </div>
+</section>
 
   <!-- =================================================================
        CARDS DE SERVIÇOS
@@ -1276,7 +1446,7 @@
           </ul>
         </div>
       </div>
-
+      <a href="politica-de-cookies.html">Política de Cookies</a>
       <div class="footer-baixo">
         <span>&copy; <span id="anoAtual"></span> Puro Lar. Todos os direitos reservados.</span>
         <span>Higienização de estofados com carinho e profissionalismo.</span>
@@ -1512,6 +1682,124 @@ numerosContador.forEach((numero) => {
       }
     });
 
+
+    
+/* COMPARADOR INTERATIVO ANTES E DEPOIS */
+
+const imagensComparador = {
+  sofa: {
+    antes: "imagens/sofá.dois.lugares(antes).jpeg",
+    depois: "imagens/sofá.dois.lugares(depois).jpeg",
+    nome: "Sofá"
+  },
+  tapete: {
+    antes: "imagens/tapete.antes(01).jpeg",
+    depois: "imagens/tapete.depois(01).jpeg",
+    nome: "Tapete"
+  },
+  carro: {
+    antes: "imagens/banco_carro_antes.png",
+    depois: "imagens/banco_carro_depois.png",
+    nome: "Banco do carro"
+  }
+};
+
+const comparador = document.getElementById("comparador");
+
+if (comparador) {
+  const antes = document.getElementById("imagem-antes");
+  const depois = document.getElementById("imagem-depois");
+  const revelacao = document.getElementById("revelacao");
+  const divisoria = document.getElementById("divisoria");
+  const faixa = document.getElementById("controle-faixa");
+  const controle = document.getElementById("controle-comparador");
+  const abas = document.querySelectorAll(".aba-comparador");
+
+  let posicao = 50;
+  let arrastando = false;
+
+  function atualizarPosicao(valor) {
+    posicao = Math.max(0, Math.min(100, Number(valor)));
+
+    revelacao.style.clipPath =
+      `inset(0 0 0 ${posicao}%)`;
+
+    divisoria.style.left = `${posicao}%`;
+    faixa.value = posicao;
+    controle.setAttribute("aria-valuenow", posicao);
+    controle.setAttribute(
+      "aria-valuetext",
+      `${posicao}% antes e ${100 - posicao}% depois`
+    );
+  }
+
+  function moverPara(event) {
+    const rect = comparador.getBoundingClientRect();
+    const valor =
+      ((event.clientX - rect.left) / rect.width) * 100;
+
+    atualizarPosicao(valor);
+  }
+
+  abas.forEach((aba) => {
+    aba.addEventListener("click", () => {
+      const dados = imagensComparador[aba.dataset.tipo];
+      if (!dados) return;
+
+      abas.forEach((item) => {
+        const ativa = item === aba;
+        item.classList.toggle("ativa", ativa);
+        item.setAttribute("aria-pressed", String(ativa));
+      });
+
+      antes.src = dados.antes;
+      depois.src = dados.depois;
+      antes.alt = `${dados.nome} antes da higienização`;
+      depois.alt = `${dados.nome} depois da higienização`;
+
+      atualizarPosicao(50);
+    });
+  });
+
+  faixa.addEventListener("input", () => {
+    atualizarPosicao(faixa.value);
+  });
+
+  controle.addEventListener("pointerdown", (event) => {
+    arrastando = true;
+    controle.setPointerCapture(event.pointerId);
+    moverPara(event);
+    event.preventDefault();
+  });
+
+  controle.addEventListener("pointermove", (event) => {
+    if (arrastando) moverPara(event);
+  });
+
+  function pararArraste() {
+    arrastando = false;
+  }
+
+  controle.addEventListener("pointerup", pararArraste);
+  controle.addEventListener("pointercancel", pararArraste);
+
+  controle.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      atualizarPosicao(posicao - 2);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      atualizarPosicao(posicao + 2);
+    }
+
+    if (event.key === "Home") atualizarPosicao(0);
+    if (event.key === "End") atualizarPosicao(100);
+  });
+
+  atualizarPosicao(50);
+}
     
     /*CODIGO PARA OS CARDS ESPECIFICO PARA CADA ORÇAMENTO UMA MENSAGEM PRONTA*/
     
@@ -1531,11 +1819,7 @@ numerosContador.forEach((numero) => {
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagens[servico])}`;
 
     window.open(url, "_blank");
-
-  
-}
-
-
+  }
   </script>
 </body>
 </html>

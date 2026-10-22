@@ -1,0 +1,1067 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Política de Privacidade e Cookies | Puro Lar</title>
+
+  <meta
+    name="description"
+    content="Conheça a política de privacidade e cookies da Puro Lar, seus direitos e como gerenciar suas preferências."
+  >
+
+  <meta name="theme-color" content="#1769D2">
+  <!-- FAVICON DO NAVEGADOR -->
+<link rel="icon" type="image/png" href="https://purolarhigienizacao.com.br/imagens/favicon.png">
+
+<!-- FAVICON PARA O GOOGLE -->
+<link rel="icon" type="image/png" sizes="48x48"
+      href="https://www.purolarhigienizacao.com.br/imagens/favicon-48.png">
+
+  <style>
+    /* ==================================================
+       PERSONALIZAÇÃO VISUAL — PURO LAR
+       Altere estas variáveis para modificar o visual.
+       ================================================== */
+
+    :root {
+      --pl-primary: #1769D2;
+      --pl-primary-hover: #0D4FA8;
+      --pl-secondary: #43A047;
+      --pl-text: #252525;
+      --pl-muted: #626B75;
+      --pl-background: #F5F8FC;
+      --pl-surface: #FFFFFF;
+      --pl-border: #E2E8F0;
+
+      --pl-font: Arial, Helvetica, sans-serif;
+      --pl-content-width: 900px;
+      --pl-radius: 14px;
+      --pl-button-radius: 8px;
+      --pl-card-shadow: 0 5px 24px rgba(20, 40, 70, .07);
+
+      /* Banner de preferências */
+      --pl-banner-background: #FFFFFF;
+      --pl-banner-text: #252525;
+      --pl-banner-shadow: 0 8px 30px rgba(0, 0, 0, .16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--pl-font);
+      color: var(--pl-text);
+      background: var(--pl-background);
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--pl-primary);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--pl-primary-hover);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .site-header {
+      background: var(--pl-surface);
+      border-bottom: 1px solid var(--pl-border);
+    }
+
+    .header-inner {
+      width: min(
+        var(--pl-content-width),
+        calc(100% - 36px)
+      );
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--pl-text);
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Substitua pelo caminho real da logo, se desejar. */
+    .brand img {
+      display: block;
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--pl-primary);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back-link svg {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+    }
+
+    .page {
+      width: min(
+        var(--pl-content-width),
+        calc(100% - 36px)
+      );
+      margin: 36px auto 60px;
+    }
+
+    .intro {
+      padding: 34px;
+      margin-bottom: 22px;
+      background: var(--pl-surface);
+      border: 1px solid var(--pl-border);
+      border-radius: var(--pl-radius);
+      box-shadow: var(--pl-card-shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--pl-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -.7px;
+    }
+
+    .intro p {
+      color: var(--pl-muted);
+    }
+
+    .updated {
+      font-size: 13px;
+      color: var(--pl-muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 17px;
+      border: 1px solid var(--pl-primary);
+      border-radius: var(--pl-button-radius);
+      background: var(--pl-primary);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: var(--pl-primary-hover);
+      border-color: var(--pl-primary-hover);
+      color: white;
+    }
+
+    .button--secondary {
+      color: var(--pl-primary);
+      background: white;
+    }
+
+    .button--secondary:hover {
+      color: var(--pl-primary-hover);
+      background: #F0F6FF;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 225px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .toc,
+    .policy-content,
+    .preferences {
+      background: var(--pl-surface);
+      border: 1px solid var(--pl-border);
+      border-radius: var(--pl-radius);
+      box-shadow: var(--pl-card-shadow);
+    }
+
+    .toc {
+      position: sticky;
+      top: 20px;
+      padding: 20px;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 6px 0;
+      font-size: 13px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .policy-content {
+      padding: 30px;
+      min-width: 0;
+    }
+
+    .policy-content section + section {
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid var(--pl-border);
+    }
+
+    .policy-content h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: -.2px;
+    }
+
+    .policy-content h3 {
+      margin-top: 22px;
+      font-size: 17px;
+    }
+
+    .policy-content p,
+    .policy-content li {
+      font-size: 14px;
+    }
+
+    .policy-content li + li {
+      margin-top: 8px;
+    }
+
+    .notice {
+      padding: 15px 17px;
+      border-left: 3px solid var(--pl-secondary);
+      border-radius: 5px;
+      background: #F3F9F3;
+      font-size: 13px;
+    }
+
+    .preferences {
+      margin-top: 22px;
+      padding: 28px;
+      scroll-margin-top: 20px;
+    }
+
+    .preferences h2 {
+      margin-top: 0;
+      font-size: 23px;
+    }
+
+    .category {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--pl-border);
+    }
+
+    .category h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+
+    .category p {
+      margin: 0;
+      color: var(--pl-muted);
+      font-size: 13px;
+    }
+
+    .category input {
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      accent-color: var(--pl-primary);
+      flex-shrink: 0;
+    }
+
+    .category input:disabled {
+      cursor: not-allowed;
+    }
+
+    .save-status {
+      min-height: 24px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--pl-secondary);
+    }
+
+    .site-footer {
+      padding: 25px 18px;
+      background: white;
+      border-top: 1px solid var(--pl-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--pl-muted);
+    }
+
+    .site-footer a {
+      margin: 0 7px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--pl-primary);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 66px;
+      }
+
+      .brand {
+        font-size: 17px;
+      }
+
+      .brand img {
+        width: 34px;
+        height: 34px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .toc nav {
+        columns: 2;
+        column-gap: 20px;
+      }
+
+      .page {
+        margin-top: 20px;
+      }
+
+      .intro,
+      .policy-content,
+      .preferences {
+        padding: 22px 19px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .header-inner,
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .back-link {
+        font-size: 12px;
+      }
+
+      .toc nav {
+        columns: 1;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .actions .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a class="brand" href="index.html" aria-label="Puro Lar - página inicial">
+        <!-- Opcional: informe aqui o caminho real da sua logo. -->
+        <!-- <img src="images/logo-puro-lar.png" alt=""> -->
+        <img src="imagens/LOGO.PURO.LAR.png" alt="Puro Lar" style="width: 250px;height: 80px;">
+      </a>
+
+      <a class="back-link" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M19 12H5"></path>
+          <path d="m12 19-7-7 7-7"></path>
+        </svg>
+        Voltar ao site
+      </a>
+
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="intro">
+      <p class="eyebrow">Privacidade e transparência</p>
+
+      <h1>Política de Privacidade e Cookies</h1>
+
+      <p>
+        Esta página explica como a Puro Lar trata informações
+        relacionadas à navegação em seu site, para quais finalidades
+        elas podem ser utilizadas e como você pode exercer seus
+        direitos e gerenciar suas preferências.
+      </p>
+
+      <p class="updated">
+        Última atualização: <time datetime="2026-10-22">22/10/2026</time>.
+        Atualize esta data sempre que o documento for revisado.
+      </p>
+
+      <div class="actions">
+        <a class="button" href="#preferencias">
+          Personalizar cookies
+        </a>
+
+        <a class="button button--secondary" href="#direitos">
+          Conhecer meus direitos
+        </a>
+      </div>
+    </section>
+
+    <div class="layout">
+
+      <aside class="toc">
+        <h2>Nesta página</h2>
+
+        <nav aria-label="Índice da política">
+          <a href="#controlador">1. Responsável pelo tratamento</a>
+          <a href="#conceitos">2. Conceitos e tipos de dados</a>
+          <a href="#finalidades">3. Finalidades e bases legais</a>
+          <a href="#cookies">4. Categorias de cookies</a>
+          <a href="#terceiros">5. Ferramentas de terceiros</a>
+          <a href="#compartilhamento">6. Compartilhamento</a>
+          <a href="#retencao">7. Retenção e segurança</a>
+          <a href="#direitos">8. Direitos previstos na LGPD</a>
+          <a href="#exercicio">9. Como exercer seus direitos</a>
+          <a href="#alteracoes">10. Atualizações e contato</a>
+        </nav>
+      </aside>
+
+      <article class="policy-content">
+
+        <section id="controlador">
+          <h2>1. Quem é responsável pelo tratamento?</h2>
+
+          <p>
+            O controlador é a pessoa física ou jurídica que decide
+            sobre o tratamento de dados pessoais. Para esta política,
+            os dados de identificação do responsável devem ser
+            preenchidos pela empresa antes da publicação.
+          </p>
+
+          <ul>
+            <li><strong>Nome empresarial ou nome completo:</strong>
+              66.966.104 Elder Max Estevam Soares da Conceicao</li>
+            <li><strong>Nome comercial:</strong> Puro Lar</li>
+            <li><strong>CNPJ:</strong>
+               66.966.104/0001-63</li>
+            <li><strong>Contato de privacidade:</strong>
+              purolarsuporte@gmail.com</li>
+          </ul>
+
+          <p>
+            O controlador deverá avaliar as finalidades e as bases
+            legais de cada operação realizada no site. Prestadores
+            que tratem dados em seu nome poderão atuar como operadores,
+            conforme a atividade e os contratos aplicáveis.
+          </p>
+        </section>
+
+        <section id="conceitos">
+          <h2>2. O que são dados pessoais e cookies?</h2>
+
+          <p>
+            Dados pessoais são informações relacionadas a uma pessoa
+            natural identificada ou identificável. Cookies são
+            pequenos arquivos armazenados pelo navegador, enquanto
+            outras tecnologias podem registrar identificadores,
+            eventos e informações técnicas da navegação.
+          </p>
+
+          <p>
+            Dependendo das funcionalidades efetivamente utilizadas,
+            o site poderá tratar dados como endereço IP, informações
+            do navegador e dispositivo, páginas visitadas, origem
+            do acesso, interações com páginas e identificadores
+            online. A coleta concreta depende da configuração
+            do site e das ferramentas instaladas.
+          </p>
+
+          <p>
+            Não se deve presumir que todas essas informações sejam
+            coletadas atualmente. O controlador deverá verificar
+            os dados realmente tratados e atualizar esta descrição
+            quando as funcionalidades forem implementadas.
+          </p>
+        </section>
+
+        <section id="finalidades">
+          <h2>3. Finalidades e bases legais</h2>
+
+          <p>
+            Os dados serão tratados somente para finalidades
+            determinadas, legítimas e informadas ao titular,
+            observados os princípios e requisitos da Lei
+            nº 13.709/2018 (LGPD).
+          </p>
+
+          <ul>
+            <li>
+              <strong>Funcionamento do site:</strong> disponibilizar
+              páginas e recursos essenciais, com a hipótese legal
+              adequada ao tratamento efetivamente necessário.
+            </li>
+            <li>
+              <strong>Preferências de cookies:</strong> registrar
+              escolhas e permitir que o site respeite as preferências
+              do visitante.
+            </li>
+            <li>
+              <strong>Análise de navegação:</strong> se implementada,
+              compreender o uso do site e avaliar seu desempenho,
+              mediante a hipótese legal aplicável.
+            </li>
+            <li>
+              <strong>Medição de publicidade:</strong> se implementada,
+              medir campanhas e conversões, quando houver base legal
+              válida e forem atendidos os requisitos de consentimento
+              aplicáveis.
+            </li>
+            <li>
+              <strong>Atendimento de solicitações:</strong> responder
+              a pedidos do visitante e cumprir obrigações legais
+              quando aplicáveis.
+            </li>
+          </ul>
+
+          <p>
+            A base legal não é a mesma para todas as finalidades.
+            Cookies estritamente necessários podem ser tratados
+            com fundamento legal adequado à necessidade concreta.
+            Para cookies não necessários de análise ou publicidade,
+            o consentimento será solicitado quando essa for a
+            hipótese legal aplicável.
+          </p>
+        </section>
+
+        <section id="cookies">
+          <h2>4. Categorias de cookies</h2>
+
+          <h3>4.1. Necessários</h3>
+
+          <p>
+            Permitem recursos essenciais, como manter preferências
+            de privacidade e viabilizar funcionalidades indispensáveis.
+            Esses recursos não devem ser usados para finalidades
+            incompatíveis com sua necessidade.
+          </p>
+
+          <h3>4.2. Análise e desempenho</h3>
+
+          <p>
+            Poderão ser utilizados para compreender o uso das páginas,
+            avaliar visitas e identificar oportunidades de melhoria.
+            Esta categoria deverá permanecer desativada até que
+            a ferramenta correspondente esteja configurada e haja
+            autorização válida quando necessária.
+          </p>
+
+          <h3>4.3. Publicidade e marketing</h3>
+
+          <p>
+            Poderão ser utilizados para medir campanhas, atribuir
+            conversões e, conforme a configuração, apoiar publicidade
+            direcionada. A ativação dependerá da implementação
+            efetiva e do consentimento exigido.
+          </p>
+
+          <p>
+            A lista de cookies, seus fornecedores, domínios, prazos
+            e finalidades específicos deverá ser completada após
+            uma verificação técnica das ferramentas realmente
+            instaladas. Os prazos não devem ser presumidos.
+          </p>
+        </section>
+
+        <section id="terceiros">
+          <h2>5. Google Tag Manager e Pixel da Meta</h2>
+
+          <p>
+            A Puro Lar prevê a possibilidade de utilizar ferramentas
+            de terceiros para administrar tags e medir resultados
+            de publicidade. A menção a seguir descreve a utilização
+            planejada e não afirma, por si só, que essas ferramentas
+            estejam atualmente ativas.
+          </p>
+
+          <h3>Google Tag Manager</h3>
+
+          <p>
+            Se implementado, o Google Tag Manager poderá administrar
+            scripts e tags de medição ou marketing. Os dados
+            efetivamente enviados dependerão das tags instaladas
+            no contêiner, de suas configurações e dos controles
+            de consentimento aplicados.
+          </p>
+
+          <h3>Pixel da Meta</h3>
+
+          <p>
+            Se implementado, o Pixel da Meta poderá registrar eventos
+            de navegação e interações configuradas para mensuração
+            de campanhas e conversões publicitárias. Os eventos e
+            identificadores tratados dependerão da implementação.
+          </p>
+
+          <p>
+            Essas ferramentas não devem ser ativadas para finalidades
+            não necessárias antes do consentimento exigido. A simples
+            instalação do gerenciador de tags não garante que todas
+            as tags nele configuradas respeitem a escolha do visitante.
+          </p>
+
+          <p>
+            Para informações adicionais, consulte as políticas
+            oficiais dos respectivos fornecedores:
+          </p>
+
+          <ul>
+            <li>
+              <a href="https://policies.google.com/privacy?hl=pt-BR"
+                target="_blank" rel="noopener noreferrer">
+                Política de Privacidade do Google
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/privacy/policy/"
+                target="_blank" rel="noopener noreferrer">
+                Política de Privacidade da Meta
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="compartilhamento">
+          <h2>6. Compartilhamento e transferências</h2>
+
+          <p>
+            Dados poderão ser compartilhados com prestadores
+            tecnológicos que auxiliem na hospedagem, funcionamento,
+            segurança, análise ou publicidade do site, caso esses
+            serviços sejam efetivamente utilizados e o compartilhamento
+            seja adequado à finalidade e à base legal aplicável.
+          </p>
+
+          <p>
+            Alguns fornecedores podem tratar dados em outros países.
+            Se ocorrer transferência internacional, o controlador
+            deverá identificar os destinatários, avaliar a operação
+            e observar os requisitos legais aplicáveis.
+          </p>
+
+          <p>
+            O compartilhamento não deverá exceder o necessário
+            para a finalidade informada. Os fornecedores, países
+            envolvidos e mecanismos de transferência devem ser
+            confirmados antes da publicação da versão definitiva.
+          </p>
+        </section>
+
+        <section id="retencao">
+          <h2>7. Retenção, segurança e eliminação</h2>
+
+          <p>
+            Os dados serão mantidos pelo período necessário para
+            cumprir as finalidades informadas, respeitadas as
+            obrigações legais e as hipóteses de conservação previstas
+            na legislação. Não se estabelece um prazo universal
+            para todos os dados ou cookies.
+          </p>
+
+          <p>
+            Os prazos de retenção dos identificadores de cada
+            ferramenta deverão ser verificados em sua configuração
+            e documentação. Quando cabível, os dados serão excluídos,
+            anonimizados ou bloqueados conforme a legislação aplicável.
+          </p>
+
+          <p>
+            O controlador deverá adotar medidas técnicas e
+            administrativas adequadas para proteger os dados contra
+            acessos não autorizados, perda, alteração, divulgação
+            ou tratamento inadequado, de acordo com os riscos
+            e as exigências legais aplicáveis.
+          </p>
+        </section>
+
+        <section id="direitos">
+          <h2>8. Seus direitos previstos na LGPD</h2>
+
+          <p>
+            Nos termos do artigo 18 e demais disposições aplicáveis
+            da LGPD, o titular pode solicitar, conforme o caso:
+          </p>
+
+          <ul>
+            <li>Confirmação da existência de tratamento de seus dados.</li>
+            <li>Acesso aos dados pessoais tratados.</li>
+            <li>Correção de dados incompletos, inexatos ou desatualizados.</li>
+            <li>
+              Anonimização, bloqueio ou eliminação de dados
+              desnecessários, excessivos ou tratados em desconformidade
+              com a legislação, quando cabível.
+            </li>
+            <li>
+              Portabilidade dos dados, observados a regulamentação
+              da ANPD, os requisitos aplicáveis e os segredos
+              comercial e industrial.
+            </li>
+            <li>
+              Eliminação dos dados tratados com base no consentimento,
+              ressalvadas as hipóteses legais de conservação.
+            </li>
+            <li>
+              Informação sobre entidades públicas e privadas com
+              as quais tenha ocorrido uso compartilhado de dados.
+            </li>
+            <li>
+              Informação sobre a possibilidade de não fornecer
+              consentimento e as consequências da negativa.
+            </li>
+            <li>
+              Revogação do consentimento por procedimento gratuito
+              e facilitado, quando o tratamento estiver baseado
+              nessa hipótese legal.
+            </li>
+            <li>
+              Peticionamento perante a ANPD, nos termos aplicáveis,
+              e perante os órgãos de defesa do consumidor quando cabível.
+            </li>
+            <li>
+              Oposição a tratamento realizado com fundamento
+              em hipótese de dispensa de consentimento, quando
+              houver descumprimento da LGPD.
+            </li>
+            <li>
+              Solicitação de revisão de decisões tomadas unicamente
+              com base em tratamento automatizado que afetem
+              seus interesses, conforme a legislação aplicável.
+            </li>
+            <li>
+              Informações sobre critérios e procedimentos de decisões
+              automatizadas, observados os limites legais.
+            </li>
+          </ul>
+
+          <p>
+            O exercício dos direitos poderá exigir confirmação
+            de identidade e análise da solicitação. Nem todo pedido
+            implica eliminação imediata: podem existir obrigações
+            legais de conservação ou outras hipóteses previstas
+            na LGPD.
+          </p>
+        </section>
+
+        <section id="exercicio">
+          <h2>9. Como exercer seus direitos e gerenciar cookies</h2>
+
+          <p>
+            Para exercer seus direitos relacionados aos dados
+            pessoais, utilize o contato oficial informado nesta
+            política. Descreva sua solicitação para que ela possa
+            ser encaminhada e atendida conforme os requisitos legais.
+          </p>
+
+          <p>
+            Para alterar as preferências de cookies, utilize o
+            painel abaixo. A escolha será armazenada neste navegador
+            e poderá ser modificada posteriormente. A exclusão dos
+            dados do navegador pode remover essa preferência.
+          </p>
+
+          <p>
+            A preferência registrada pelo site não garante, por si só,
+            a exclusão de cookies já instalados por terceiros.
+            O sistema de consentimento deverá também controlar
+            novas ativações e tratar a revogação de forma efetiva.
+          </p>
+        </section>
+
+        <section id="alteracoes">
+          <h2>10. Atualizações e contato</h2>
+
+          <p>
+            Esta política poderá ser atualizada quando houver
+            alterações nas funcionalidades, nos fornecedores,
+            nas finalidades ou nas exigências legais. A data
+            de atualização deverá refletir a revisão efetivamente
+            realizada.
+          </p>
+
+          <p>
+            <strong>Contato para assuntos de privacidade:</strong>
+            purolarsuporte@gmail.com.
+          </p>
+
+          <p>
+            <strong>Controlador:</strong>
+            Puro Lar.
+          </p>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- PAINEL DE PREFERÊNCIAS -->
+    <section class="preferences" id="preferencias">
+      <h2>Personalizar cookies</h2>
+
+      <p>
+        Escolha quais categorias opcionais deseja autorizar.
+        Os cookies estritamente necessários permanecem ativos
+        quando indispensáveis ao funcionamento do site.
+      </p>
+
+      <form id="cookie-preferences-form">
+
+        <div class="category">
+          <div>
+            <h3>Cookies necessários</h3>
+            <p>
+              Preferências essenciais e funcionamento básico
+              do mecanismo de consentimento.
+            </p>
+          </div>
+
+          <input
+            type="checkbox"
+            checked
+            disabled
+            aria-label="Cookies necessários sempre ativos"
+          >
+        </div>
+
+        <div class="category">
+          <div>
+            <h3>Análise e desempenho</h3>
+            <p>
+              Medição de uso e desempenho, se as ferramentas
+              correspondentes estiverem implementadas.
+            </p>
+          </div>
+
+          <input
+            type="checkbox"
+            id="pref-analytics"
+            name="analytics"
+          >
+        </div>
+
+        <div class="category">
+          <div>
+            <h3>Publicidade e marketing</h3>
+            <p>
+              Medição de campanhas e publicidade, se aplicável.
+            </p>
+          </div>
+
+          <input
+            type="checkbox"
+            id="pref-marketing"
+            name="marketing"
+          >
+        </div>
+
+        <div class="actions">
+          <button class="button" type="submit">
+            Salvar minhas preferências
+          </button>
+
+          <button
+            class="button button--secondary"
+            type="button"
+            id="reject-optional-cookies"
+            >
+            Rejeitar opcionais
+          </button>
+        </div>
+
+        <p
+          id="preferences-status"
+          class="save-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="current-year">2026</span> Puro Lar.</p>
+
+    <a href="index.html">Voltar ao site</a>
+    <a href="#preferencias">Preferências de cookies</a>
+    <a href="#direitos">Direitos de privacidade</a>
+  </footer>
+    
+<script>
+  (() => {
+    "use strict";
+
+    const STORAGE_KEY = "purolar_cookie_preferences";
+
+    const analyticsInput = document.getElementById("pref-analytics");
+    const marketingInput = document.getElementById("pref-marketing");
+    const form = document.getElementById("cookie-preferences-form");
+    const rejectButton = document.getElementById("reject-optional-cookies");
+    const status = document.getElementById("preferences-status");
+
+    function readPreferences() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+
+        const saved = JSON.parse(raw);
+
+        if (
+          saved?.version !== 1 ||
+          typeof saved.analytics !== "boolean" ||
+          typeof saved.marketing !== "boolean"
+        ) {
+          return null;
+        }
+
+        return saved;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function savePreferences(analytics, marketing, decision = "custom") {
+      const preferences = {
+        version: 1,
+        necessary: true,
+        analytics,
+        marketing,
+        decision,
+        updatedAt: new Date().toISOString()
+      };
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+
+        window.dispatchEvent(
+          new CustomEvent("purolar:consent-updated", {
+            detail: preferences
+          })
+        );
+
+        status.textContent = "Preferências salvas neste navegador.";
+        return true;
+      } catch (error) {
+        status.textContent =
+          "Não foi possível salvar. Verifique as configurações do navegador.";
+        return false;
+      }
+    }
+
+    function loadPreferencesIntoForm() {
+      const saved = readPreferences();
+
+      if (!saved) return;
+
+      analyticsInput.checked = saved.analytics;
+      marketingInput.checked = saved.marketing;
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      savePreferences(
+        analyticsInput.checked,
+        marketingInput.checked,
+        "custom"
+      );
+    });
+
+    rejectButton.addEventListener("click", () => {
+      analyticsInput.checked = false;
+      marketingInput.checked = false;
+
+      savePreferences(false, false, "rejected");
+    });
+
+    loadPreferencesIntoForm();
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  })();
+</script>
+
+
+</body>
+</html>
+
